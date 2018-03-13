@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PlanYourParty</string>
+    <string name="title_activity_custom_package">CustomPackage</string>
+    <string name="title_activity_standard_package">StandardPackage</string>
+    <string name="title_activity_orders">Orders</string>
+</resources>
