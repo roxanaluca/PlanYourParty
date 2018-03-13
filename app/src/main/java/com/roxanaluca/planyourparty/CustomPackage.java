@@ -22,8 +22,8 @@ public class CustomPackage extends AppCompatActivity implements View.OnTouchList
         setContentView(R.layout.activity_custom_package);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override

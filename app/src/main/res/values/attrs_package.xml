@@ -1,0 +1,10 @@
+<resources>
+    <declare-styleable name="PackageView">
+        <attr name="exampleString" format="string" />
+        <attr name="exampleDimension" format="dimension" />
+        <attr name="exampleColor" format="color" />
+        <attr name="music" format="string"/>
+        <attr name="food" format="string" />
+        <attr name="venue" format="string" />
+    </declare-styleable>
+</resources>
