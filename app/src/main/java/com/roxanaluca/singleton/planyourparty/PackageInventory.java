@@ -29,13 +29,17 @@ public class PackageInventory {
 
     public static PackageInventory getInstance() {
         if (ourInstance == null) {
-            loadDatabase();
             ourInstance = new PackageInventory();
         }
         return ourInstance;
     }
 
-    private static void loadDatabase()
+    public static int size()
+    {
+        return m_Model.size();
+    }
+
+    private PackageInventory()
     {
         m_Model = new ArrayList<>();
         ref.addValueEventListener(new ValueEventListener() {
@@ -44,7 +48,7 @@ public class PackageInventory {
                 m_Model = new ArrayList<>();
                 Iterable<DataSnapshot> packages = dataSnapshot.getChildren();
                 for (DataSnapshot text : packages){
-                //for current info about the package
+                    //for current info about the package
 
                     ArrayList<Item> list = new ArrayList<>();
                     Iterable<DataSnapshot> items = text.getChildren();
@@ -65,5 +69,10 @@ public class PackageInventory {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+    }
+
+    public static ItemInterface getItem(int i)
+    {
+        return m_Model.get(i);
     }
 }

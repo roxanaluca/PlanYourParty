@@ -16,7 +16,7 @@ public class StandardPackage implements ItemInterface{
         else list = null;
     }
 
-    public Item getPackageItem(TypePackage type)
+    public Item getPackageItem(TypeItem type)
     {
         switch (type){
             case FOOD:
@@ -29,7 +29,7 @@ public class StandardPackage implements ItemInterface{
         return null;
     }
 
-    public enum TypePackage {
+    public enum TypeItem {
         FOOD,VENUE, MUSIC;
     }
 }

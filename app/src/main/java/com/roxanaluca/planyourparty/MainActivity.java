@@ -6,11 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.roxanaluca.model.planyourparty.ItemInterface;
+import com.roxanaluca.singleton.planyourparty.ItemInventory;
+import com.roxanaluca.singleton.planyourparty.PackageInventory;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
+         * SetUp database
+         */
+
+        ItemInventory.getInstance();
+        PackageInventory.getInstance();
+
         setContentView(R.layout.activity_main);
 
         Button button_custom_package = findViewById(R.id.button_custom_package);

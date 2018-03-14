@@ -13,6 +13,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.roxanaluca.model.planyourparty.StandardPackage;
+
 /**
  * TODO: document your custom view class.
  */
@@ -122,6 +124,15 @@ public class PackageView extends View {
                 paddingLeft + (contentWidth - mTextWidth) / 2,
                 paddingTop + (contentHeight + mTextHeight),
                 mTextPaint);
+    }
+
+    public void setString(StandardPackage.TypeItem type,String string) {
+        switch (type)
+        {
+            case FOOD: setFoodString(string); break;
+            case MUSIC: setMusicString(string); break;
+            case VENUE: setVenueString(string); break;
+        }
     }
 
     /**

@@ -15,6 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.roxanaluca.model.planyourparty.StandardPackage;
+import com.roxanaluca.singleton.planyourparty.ItemInventory;
+import com.roxanaluca.singleton.planyourparty.PackageInventory;
+
 import org.xmlpull.v1.XmlPullParser;
 
 public class StandardPackageActivity extends AppCompatActivity {
@@ -48,27 +52,7 @@ public class StandardPackageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_package);
 
-        //here you need to add height of PackageView class
-        LinearLayout package_content = findViewById(R.id.package_search);
-        for (int i = 0;i<2;i++)
-        //add test CustomPackage class sample for customer package
-        {
-            PackageView custom = new PackageView(this);
-            DisplayMetrics dm = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(dm);
-            float scaledPixelSize = 150;
-            float pixelSize = (int) scaledPixelSize * dm.scaledDensity;
-
-            LinearLayout.LayoutParams rules = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, (int)pixelSize);
-            custom.setFoodString("Spaghetti");
-            custom.setMusicString("Max Production");
-            custom.setVenueString("London");
-
-            scaledPixelSize = 24;
-            pixelSize = (int) scaledPixelSize * dm.scaledDensity;
-            custom.setExampleDimension(pixelSize);
-            package_content.addView(custom, rules);
-        }
+        printStandardPackage();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,6 +61,38 @@ public class StandardPackageActivity extends AppCompatActivity {
         View content = findViewById(R.id.package_search);
         content.setOnTouchListener(touchListener);
 
+    }
+
+    public void printStandardPackage() //not according to the sequence diagram!!! Should be
+    {
+        //here you need to add height of PackageView class
+        LinearLayout package_content = findViewById(R.id.package_search);
+        int i,j;
+
+        for (i = 0; i< PackageInventory.size(); i++)
+        //add test CustomPackage class sample for customer package
+        {
+            PackageView custom = new PackageView(this);
+
+            //set the dimension of the box according to xml format
+            DisplayMetrics dm = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(dm);
+            float scaledPixelSize = 150;
+            float pixelSize = (int) scaledPixelSize * dm.scaledDensity;
+            LinearLayout.LayoutParams rules = new LinearLayout.LayoutParams
+                    (LinearLayout.LayoutParams.WRAP_CONTENT, (int)pixelSize);
+
+            for (j = 0; j< StandardPackage.TypeItem.values().length;j++) {
+                StandardPackage standard = (StandardPackage) PackageInventory.getItem(j);
+                StandardPackage.TypeItem type = StandardPackage.TypeItem.values()[j];
+                custom.setString(type, standard.getPackageItem(type).getName());
+            }
+
+            scaledPixelSize = 24;
+            pixelSize = (int) scaledPixelSize * dm.scaledDensity;
+            custom.setExampleDimension(pixelSize);
+            package_content.addView(custom, rules);
+        }
     }
 
     @Override

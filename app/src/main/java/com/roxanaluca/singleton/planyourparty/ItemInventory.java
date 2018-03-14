@@ -11,8 +11,6 @@ import com.roxanaluca.model.planyourparty.Item;
 
 import java.util.*;
 
-import static com.roxanaluca.singleton.planyourparty.ItemInventory.loadDatabase;
-
 /**
  * Created by ababalola on 13/03/2018.
  */
@@ -25,15 +23,17 @@ public class ItemInventory {
 
     public static ItemInventory getInstance() {
         if (ourInstance == null) {
-            loadDatabase();
             ourInstance = new ItemInventory();
         }
         return ourInstance;
     }
 
-    private static void loadDatabase()
+    public static int size()
     {
+        return m_Model.size();
+    }
 
+    private ItemInventory() {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -43,7 +43,6 @@ public class ItemInventory {
                     Item item = text.getValue(Item.class);
                     m_Model.add(item);
                 }
-
             }
 
             @Override
@@ -53,14 +52,8 @@ public class ItemInventory {
         });
     }
 
-    private ItemInventory() {
-
-    }
-
     public static Item getItem(int i)
     {
-        if (m_Model!=null)
-            return m_Model.get(i);
-        return getInstance().getItem(i);
+        return m_Model.get(i);
     }
 }
