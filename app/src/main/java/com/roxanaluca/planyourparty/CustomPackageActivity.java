@@ -12,9 +12,31 @@ import android.view.View;
 
 import java.time.chrono.MinguoChronology;
 
-public class CustomPackage extends AppCompatActivity implements View.OnTouchListener {
+public class CustomPackageActivity extends AppCompatActivity {
 
-    private int xStart,yStart;
+    private View.OnTouchListener touchListener = new View.OnTouchListener() {
+        private int xStart,yStart;
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+
+            final int X = (int) event.getRawX();
+            final int Y = (int) event.getRawY();
+            switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                case MotionEvent.ACTION_DOWN:
+                    xStart = X;
+                    yStart = Y;
+                    break;
+                case MotionEvent.ACTION_UP:
+                    int width = findViewById(R.id.root_custom_package).getWidth();
+                    if (Y - yStart < 100 && X - xStart > width / 4) {
+                        Intent intent = new Intent(CustomPackageActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    }
+            }
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +45,8 @@ public class CustomPackage extends AppCompatActivity implements View.OnTouchList
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        View content = findViewById(R.id.root_custom_package);
+        content.setOnTouchListener(touchListener);
     }
 
     @Override
@@ -43,24 +66,5 @@ public class CustomPackage extends AppCompatActivity implements View.OnTouchList
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
 
-        final int X = (int) event.getRawX();
-        final int Y = (int) event.getRawY();
-        switch (event.getAction() & MotionEvent.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN:
-                xStart = X;
-                yStart = Y;
-                break;
-            case MotionEvent.ACTION_UP:
-                int width = findViewById(R.id.root_custom_package).getWidth();
-                if (Y - yStart < 100 && X-xStart > width * 3/ 4)
-                {
-                    Intent intent = new Intent(CustomPackage.this, MainActivity.class);
-                    startActivity(intent);
-                }
-        }
-        return true;
-    }
 }

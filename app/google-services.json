@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "72581672700",
+    "firebase_url": "https://planyourparty-7dc10.firebaseio.com",
+    "project_id": "planyourparty-7dc10",
+    "storage_bucket": "planyourparty-7dc10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72581672700:android:2f5bbd296727b172",
+        "android_client_info": {
+          "package_name": "com.roxanaluca.planyourparty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72581672700-i2gag59957bp48bvr0la1585ibvd89p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8ZR4fpyx0gFhqT9Qwm2GBdCUE_kMdI0U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

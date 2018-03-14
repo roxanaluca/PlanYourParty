@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.roxanaluca.planyourparty.StandardPackage">
+    tools:context="com.roxanaluca.planyourparty.StandardPackageActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,12 +20,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars = "vertical"
-        android:scrollbarStyle="insideInset">
+        android:scrollbarStyle="insideInset"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:id="@+id/package_search"
@@ -34,14 +36,6 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:orientation="vertical">
 
-            <!--<com.roxanaluca.planyourparty.PackageView
-                android:background="#ccc"
-                app:exampleColor="#33b5e5"
-                app:exampleDimension="24sp"
-                app:music="Hello, Package"
-                android:layout_height="150dp"
-                android:layout_width="match_parent"/>
-
             <com.roxanaluca.planyourparty.PackageView
                 android:background="#ccc"
                 app:exampleColor="#33b5e5"
@@ -58,7 +52,15 @@
                 android:layout_height="150dp"
                 android:layout_width="match_parent"/>
 
-                Uncomment for design purpose-->
+            <com.roxanaluca.planyourparty.PackageView
+                android:background="#ccc"
+                app:exampleColor="#33b5e5"
+                app:exampleDimension="24sp"
+                app:music="Hello, Package"
+                android:layout_height="150dp"
+                android:layout_width="match_parent"/>
+
+                <!--Uncomment for design purpose-->
 
         </LinearLayout>
     </ScrollView>

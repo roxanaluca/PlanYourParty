@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         button_custom_package.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomPackage.class);
+                Intent intent = new Intent(MainActivity.this, CustomPackageActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         button_standard_package.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, StandardPackage.class);
+                Intent intent = new Intent(MainActivity.this, StandardPackageActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
 

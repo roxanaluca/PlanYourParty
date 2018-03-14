@@ -26,7 +26,7 @@
                 android:value="com.roxanaluca.planyourparty.MainActivity" />
         </activity>
         <activity
-            android:name=".StandardPackage"
+            android:name=".StandardPackageActivity"
             android:label="@string/title_activity_standard_package"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -35,7 +35,7 @@
                 android:value="com.roxanaluca.planyourparty.MainActivity" />
         </activity>
         <activity
-            android:name=".CustomPackage"
+            android:name=".CustomPackageActivity"
             android:label="@string/title_activity_custom_package"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
