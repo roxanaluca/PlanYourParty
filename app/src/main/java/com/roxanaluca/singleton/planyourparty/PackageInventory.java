@@ -29,6 +29,33 @@ public class PackageInventory {
 
     public static PackageInventory getInstance() {
         if (ourInstance == null) {
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    m_Model = new ArrayList<>();
+                    Iterable<DataSnapshot> packages = dataSnapshot.getChildren();
+                    for (DataSnapshot text : packages){
+                        //for current info about the package
+
+                        ArrayList<Item> list = new ArrayList<>();
+                        Iterable<DataSnapshot> items = text.getChildren();
+                        //get their index in the item list
+
+                        for (DataSnapshot item : items) {
+                            int value = item.getValue(Integer.class);
+                            list.add(ItemInventory.getItem(value));
+                        }
+
+                        m_Model.add(new StandardPackage(list));
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
             ourInstance = new PackageInventory();
         }
         return ourInstance;
@@ -39,36 +66,7 @@ public class PackageInventory {
         return m_Model.size();
     }
 
-    private PackageInventory()
-    {
-        m_Model = new ArrayList<>();
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                m_Model = new ArrayList<>();
-                Iterable<DataSnapshot> packages = dataSnapshot.getChildren();
-                for (DataSnapshot text : packages){
-                    //for current info about the package
-
-                    ArrayList<Item> list = new ArrayList<>();
-                    Iterable<DataSnapshot> items = text.getChildren();
-                    //get their index in the item list
-
-                    for (DataSnapshot item : items) {
-                        int value = item.getValue(Integer.class);
-                        list.add(ItemInventory.getItem(value));
-                    }
-
-                    m_Model.add(new StandardPackage(list));
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+    private PackageInventory() {
     }
 
     public static ItemInterface getItem(int i)

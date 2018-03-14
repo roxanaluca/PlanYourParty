@@ -23,33 +23,32 @@ public class ItemInventory {
 
     public static ItemInventory getInstance() {
         if (ourInstance == null) {
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    m_Model = new ArrayList<>();
+                    Iterable<DataSnapshot> items = dataSnapshot.getChildren();
+                    for (DataSnapshot text : items){
+                        Item item = text.getValue(Item.class);
+                        m_Model.add(item);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
             ourInstance = new ItemInventory();
         }
         return ourInstance;
     }
 
-    public static int size()
-    {
+    public static int size() {
         return m_Model.size();
     }
 
     private ItemInventory() {
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                m_Model = new ArrayList<>();
-                Iterable<DataSnapshot> items = dataSnapshot.getChildren();
-                for (DataSnapshot text : items){
-                    Item item = text.getValue(Item.class);
-                    m_Model.add(item);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
     }
 
     public static Item getItem(int i)

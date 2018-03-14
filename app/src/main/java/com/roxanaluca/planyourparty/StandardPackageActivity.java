@@ -82,8 +82,8 @@ public class StandardPackageActivity extends AppCompatActivity {
             LinearLayout.LayoutParams rules = new LinearLayout.LayoutParams
                     (LinearLayout.LayoutParams.WRAP_CONTENT, (int)pixelSize);
 
+            StandardPackage standard = (StandardPackage) PackageInventory.getItem(i);
             for (j = 0; j< StandardPackage.TypeItem.values().length;j++) {
-                StandardPackage standard = (StandardPackage) PackageInventory.getItem(j);
                 StandardPackage.TypeItem type = StandardPackage.TypeItem.values()[j];
                 custom.setString(type, standard.getPackageItem(type).getName());
             }

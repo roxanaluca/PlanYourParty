@@ -11,23 +11,34 @@ public class Item implements ItemInterface {
     private String name;
     private String type;
     private String location;
-    private int cost;
+    private double cost;
     private int numberOfGuests;
 
-    public Item(String Name,String Type, String Location,int NumberOfGuests,int Cost)
+    public Item()
     {
-        name = Name;
-        type = Type;
-        location = Location;
-        cost = Cost;
-        numberOfGuests = NumberOfGuests;
+        this.name = "";
+        this.type = "";
+        this.location = "";
+        this.cost = 0;
+        this.numberOfGuests = 0;
     }
-    public Item(String Name,String Type, String Location,int Cost)
+
+    public Item(String name,String type, String location,int numberOfGuests,double cost)
     {
-        name = Name;
-        type = Type;
-        location = Location;
-        cost = Cost;
+        this.name = name;
+        this.type = type;
+        this.location = location;
+        this.cost = cost;
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public Item(String name,String type, String location,double cost)
+    {
+        this.name = name;
+        this.type = type;
+        this.location = location;
+        this.numberOfGuests = 0;
+        this.cost = cost;
     }
 
     public String getName()
