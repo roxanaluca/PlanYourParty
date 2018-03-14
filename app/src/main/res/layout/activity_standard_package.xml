@@ -20,33 +20,47 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/package_search"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:scrollbars = "vertical"
+        android:scrollbarStyle="insideInset">
 
-        <com.roxanaluca.planyourparty.PackageView
-            android:background="#ccc"
-            app:exampleColor="#33b5e5"
-            app:exampleDimension="24sp"
-            app:music="Hello, Package"
-            android:layout_height="150dp"
-            android:layout_width="match_parent"/>
+        <LinearLayout
+            android:id="@+id/package_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
 
-        <com.roxanaluca.planyourparty.PackageView
-            android:background="#ccc"
-            app:exampleColor="#33b5e5"
-            app:exampleDimension="24sp"
-            app:music="Hello, Package"
-            android:layout_height="150dp"
-            android:layout_width="match_parent"/>
+            <!--<com.roxanaluca.planyourparty.PackageView
+                android:background="#ccc"
+                app:exampleColor="#33b5e5"
+                app:exampleDimension="24sp"
+                app:music="Hello, Package"
+                android:layout_height="150dp"
+                android:layout_width="match_parent"/>
 
-            <!--Uncomment for design purpose-->
+            <com.roxanaluca.planyourparty.PackageView
+                android:background="#ccc"
+                app:exampleColor="#33b5e5"
+                app:exampleDimension="24sp"
+                app:music="Hello, Package"
+                android:layout_height="150dp"
+                android:layout_width="match_parent"/>
 
+            <com.roxanaluca.planyourparty.PackageView
+                android:background="#ccc"
+                app:exampleColor="#33b5e5"
+                app:exampleDimension="24sp"
+                app:music="Hello, Package"
+                android:layout_height="150dp"
+                android:layout_width="match_parent"/>
 
-    </LinearLayout>
+                Uncomment for design purpose-->
 
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
