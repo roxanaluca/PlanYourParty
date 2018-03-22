@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,32 +20,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Orders"
-            android:label="@string/title_activity_orders"
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.roxanaluca.planyourparty.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CustomerMainActivity"
+            android:label="CustomerMainActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.roxanaluca.planyourparty.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Orders"
+            android:label="@string/title_activity_orders"
+            android:parentActivityName=".CustomerMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.roxanaluca.planyourparty.CustomerMainActivity" />
         </activity>
         <activity
             android:name=".StandardPackageActivity"
             android:label="@string/title_activity_standard_package"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".CustomerMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.roxanaluca.planyourparty.MainActivity" />
+                android:value="com.roxanaluca.planyourparty.CustomerMainActivity" />
         </activity>
         <activity
             android:name=".CustomPackageActivity"
             android:label="@string/title_activity_custom_package"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".CustomerMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.roxanaluca.planyourparty.MainActivity" />
+                android:value="com.roxanaluca.planyourparty.CustomerMainActivity" />
         </activity>
+
     </application>
 
 </manifest>

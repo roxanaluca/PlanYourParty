@@ -3,4 +3,11 @@
     <string name="title_activity_custom_package">CustomPackage</string>
     <string name="title_activity_standard_package">StandardPackage</string>
     <string name="title_activity_orders">Orders</string>
+    <string name="title_activity_register">Register</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">156625685001422</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb156625685001422</string>
+
+    <string name="question">Who are you?</string>
 </resources>
